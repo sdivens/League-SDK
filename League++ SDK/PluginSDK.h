@@ -125,6 +125,8 @@ public:
 	virtual bool IsChatOpen() = 0;
 	virtual void ScreenToWorld(Vec2 const& ScreenPosition, Vec3* WorldPosition) = 0;
 	virtual bool WithinFogOfWar(Vec3 const& Position) = 0;
+	virtual bool IsShopOpen() = 0;
+	virtual bool IsScoreboardOpen() = 0;
 };
 
 class IDamage
@@ -200,6 +202,7 @@ public:
 	virtual void Remove() = 0;
 	virtual IMenuOption* GetOption(const char* Name) = 0;
 	virtual IMenuOption* AddKey(const char* Name, int DefaultKey) = 0;
+	virtual IMenuOption* AddSelection(const char* Name, int DefaultIdx, std::vector<std::string> const& Names) = 0;
 };
 
 class IEventManager
@@ -270,6 +273,9 @@ public:
 	virtual void SetRangeCheckFrom(Vec3 const& Position) = 0;
 	virtual bool RunPrediction(IUnit* Target, bool IsAoE, int CollisionFlags, AdvPredictionOutput* Output, uint32_t PredictionVersion = 1) = 0;
 	virtual bool CastFrom(Vec3 const& StartPosition, Vec3 const& EndPosition) = 0;
+	virtual eSpellType GetType() = 0;
+	virtual Vec3 const& GetRangeCheckFrom() = 0;
+	virtual int GetCollisionFlags() = 0;
 };
 
 class IOrbwalking
@@ -442,7 +448,7 @@ public:
 	virtual ISpell* CreateSpell(eSpellSlot Slot, float Range = FLT_MAX) = 0;
 	virtual bool ReadFileFromURL(std::string const& Url, std::string& Out) = 0;
 	virtual void GetBaseDirectory(std::string& Out) = 0;
-	virtual ISpell2* CreateSpell2(eSpellSlot Slot, eSpellType Type, bool IsMissile, bool IsAoE, eCollisionFlags CollisionFlags) = 0;
+	virtual ISpell2* CreateSpell2(eSpellSlot Slot, eSpellType Type, bool IsMissile, bool IsAoE, int/*eCollisionFlags*/ CollisionFlags) = 0;
 	virtual IInventoryItem* CreateItemForId(int ItemId, float Range) = 0;
 	virtual ISpellData* GetSpellDataReader() = 0;
 	virtual IBuffData* GetBuffDataReader() = 0;
