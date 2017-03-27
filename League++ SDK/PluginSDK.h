@@ -38,11 +38,13 @@ public:
 	/// </summary>
 	/// <param name="Color">The color (RGBA, 0-255).</param>
 	virtual void SetColor(Vec4 const& Color) = 0;
+
 	/// <summary>
 	/// Sets the location flags such as centering (see eFontLocation).
 	/// </summary>
 	/// <param name="Flags">The flags.</param>
 	virtual void SetLocationFlags(int Flags) = 0;
+
 	/// <summary>
 	/// Renders the font string.
 	/// </summary>
@@ -51,6 +53,7 @@ public:
 	/// <param name="Fmt">The format string.</param>
 	/// <param name="...">Additional arguments depending on format.</param>
 	virtual void Render(float XPosition, float YPosition, const char* Fmt, ...) = 0;
+
 	/// <summary>
 	/// Toggles font outline.
 	/// </summary>
@@ -69,39 +72,46 @@ public:
 	/// </summary>
 	/// <param name="ScaleBorder">The scaled percent of original dimensions (0-1).</param>
 	virtual void Scale(float ScaledPercent) = 0;
+
 	/// <summary>
 	/// Scales the texture in both width and height
 	/// </summary>
 	/// <param name="ScaleX">The scaled width percent (0-1).</param>
 	/// <param name="ScaleY">The scaled height percent (0-1).</param>
 	virtual void Scale(float WidthPercent, float HeightPercent) = 0;
+
 	/// <summary>
 	/// Resizes the texture in both width and height.
 	/// </summary>
 	/// <param name="SizeBorder">Dimension size.</param>
 	virtual void Resize(float Size) = 0;
+
 	/// <summary>
 	/// Resizes the texture in both width and height.
 	/// </summary>
 	/// <param name="SizeX">Width size.</param>
 	/// <param name="SizeY">Height size.</param>
 	virtual void Resize(float WidthSize, float HeightSize) = 0;
+
 	/// <summary>
 	/// Draws the texture.
 	/// </summary>
 	/// <param name="XPosition">The x position.</param>
 	/// <param name="YPosition">The y position.</param>
 	virtual void Draw(float XPosition, float YPosition) = 0;
+
 	/// <summary>
 	/// Gets the size.
 	/// </summary>
 	/// <returns>Size of the texture.</returns>
 	virtual Vec2 const& GetSize() = 0;
+
 	/// <summary>
 	/// Sets the color.
 	/// </summary>
 	/// <param name="Color">The color (RGBA, 0-255).</param>
 	virtual void SetColor(Vec4 const& Color) = 0;
+
 	/// <summary>
 	/// Draws the texture as a circle.
 	/// </summary>
@@ -109,17 +119,20 @@ public:
 	/// <param name="YPosition">The y position.</param>
 	/// <param name="Radius">The radius.</param>
 	virtual void DrawCircle(float XPosition, float YPosition, float Radius) = 0;
+
 	/// <summary>
 	/// Sets the scale of the texture so it matches a specific size.
 	/// </summary>
 	/// <param name="WantedSize">Size of the rescaled texture.</param>
 	virtual void SetScaleBySize(Vec2 const& WantedSize) = 0;
+
 	/// <summary>
 	/// Gets the scaled size percent relative to the original size.
 	/// </summary>
 	/// <param name="NewSize">The size to compare for scaled offset.</param>
 	/// <returns>Scaled offset.</returns>
 	virtual Vec2 const& GetScaledOffset(Vec2 const& NewSize) = 0;
+
 	/// <summary>
 	/// Gets the scaled size of the texture.
 	/// </summary>
