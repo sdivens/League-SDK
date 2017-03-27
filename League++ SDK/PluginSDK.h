@@ -70,27 +70,27 @@ public:
 	/// <summary>
 	/// Scales the texture in both width and height.
 	/// </summary>
-	/// <param name="ScaleBorder">The scaled percent of original dimensions (0-1).</param>
+	/// <param name="ScaledPercent">The scaled percent of original dimensions (0-1).</param>
 	virtual void Scale(float ScaledPercent) = 0;
 
 	/// <summary>
 	/// Scales the texture in both width and height
 	/// </summary>
-	/// <param name="ScaleX">The scaled width percent (0-1).</param>
-	/// <param name="ScaleY">The scaled height percent (0-1).</param>
+	/// <param name="WidthPercent">The scaled width percent (0-1).</param>
+	/// <param name="HeightPercent">The scaled height percent (0-1).</param>
 	virtual void Scale(float WidthPercent, float HeightPercent) = 0;
 
 	/// <summary>
 	/// Resizes the texture in both width and height.
 	/// </summary>
-	/// <param name="SizeBorder">Dimension size.</param>
+	/// <param name="Size">Dimension size.</param>
 	virtual void Resize(float Size) = 0;
 
 	/// <summary>
 	/// Resizes the texture in both width and height.
 	/// </summary>
-	/// <param name="SizeX">Width size.</param>
-	/// <param name="SizeY">Height size.</param>
+	/// <param name="WidthSize">Width size.</param>
+	/// <param name="HeightSize">Height size.</param>
 	virtual void Resize(float WidthSize, float HeightSize) = 0;
 
 	/// <summary>
@@ -200,7 +200,7 @@ public:
 	/// <summary>
 	/// Creates texture from file.
 	/// </summary>
-	/// <param name="Filename">The name of the texture as it appears in \textures (no extension).</param>
+	/// <param name="TextureName">The name of the texture as it appears in the "Textures" directory.</param>
 	/// <returns>ITexture or nullptr if failed.</returns>
 	virtual ITexture* CreateTextureFromFile(const char* TextureName) = 0;
 
@@ -209,7 +209,7 @@ public:
 	/// </summary>
 	/// <param name="Data">The texture data.</param>
 	/// <param name="DataLength">Length of the data.</param>
-	/// <param name="Filename">Name of the texture.</param>
+	/// <param name="TextureName">Name of the texture.</param>
 	/// <returns>ITexture or nullptr if failed.</returns>
 	virtual ITexture* CreateTextureFromMemory(uint8_t* Data, uint32_t DataLength, const char* TextureName) = 0;
 
@@ -376,6 +376,9 @@ public:
 	virtual IUnit* GetEntityByTargetId(int TargetId) = 0;
 };
 
+/// <summary>
+/// Interface for interacting with the game engine.
+/// </summary>
 class IGame
 {
 public:
@@ -767,7 +770,7 @@ public:
 	/// <param name="Type">Damage type for calculations</param>
 	/// <param name="Range">Max range</param>
 	/// <param name="RangeCheckFrom">Optional start position for range checks</param>
-	/// <param name="IgnoreShield">If set to <c>true</c> [ignore shields].</param>
+	/// <param name="IgnoreSpellShields">If set to <c>true</c> [ignore shields].</param>
 	/// <param name="IgnoredChamps">Champions to ignore</param>
 	/// <param name="Conditions">Currently unused</param>
 	/// <returns>Best target found or nullptr</returns>
@@ -1058,7 +1061,7 @@ public:
 	/// Adds the event handler.
 	/// </summary>
 	/// <param name="EventId">The event identifier.</param>
-	/// <param name="lpCallback">The callback function.</param>
+	/// <param name="CallbackFn">The callback function.</param>
 	virtual void AddEventHandler(eLeagueEvents EventId, LPVOID CallbackFn) = 0;
 
 	/// <summary>
@@ -2090,7 +2093,7 @@ public:
 };
 
 /// <summary>
-/// Gets extended information about buffs (IUnit::GetAllBuffs, IUnit::GetBuffDataByName, IUnit::GetBuffDataByIndex, etc.)
+/// Gets extended information about buffs (IUnit::GetAllBuffsData, IUnit::GetBuffDataByName, IUnit::GetBuffDataByIndex, etc.)
 /// </summary>
 class IBuffData
 {
@@ -2263,6 +2266,9 @@ public:
 	virtual bool IsAutoAttack(IUnit* MissileUnit) = 0;
 };
 
+/// <summary>
+/// Interface for interacting with the game engine navigation mesh.
+/// </summary>
 class INavMesh
 {
 public:
@@ -2363,7 +2369,7 @@ public:
 	/// <summary>
 	/// Logs the formatted text to a file.
 	/// </summary>
-	/// <param name="Filename">The filename as stored in the \Logs directory.</param>
+	/// <param name="Filename">The filename as stored in the "Logs" directory.</param>
 	/// <param name="Fmt">The formatted text.</param>
 	/// <param name="...">The additional arguments.</param>
 	virtual void LogFile(const char* Filename, const char* Fmt, ...) = 0;
@@ -2371,7 +2377,7 @@ public:
 	/// <summary>
 	/// Clears the log file.
 	/// </summary>
-	/// <param name="Filename">The filename as stored in the \Logs directory.</param>
+	/// <param name="Filename">The filename as stored in the "Logs" directory.</param>
 	virtual void ClearLogFile(const char* Filename) = 0;
 
 	/// <summary>
