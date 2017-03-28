@@ -20,7 +20,7 @@
 	GDamage				= x->GetDamage(); \
 	GPrediction			= x->GetPrediction(); \
 	GHealthPrediction	= x->GetHealthPrediction(); \
-	GTargetSelector		= x->CreateTargetSelector(); \
+	GTargetSelector		= x->GetTargetSelector(); \
 	GSpellData 			= x->GetSpellDataReader(); \
 	GBuffData			= x->GetBuffDataReader(); \
 	GMissileData		= x->GetMissileDataReader(); \
@@ -374,6 +374,15 @@ public:
 	/// <param name="TargetId">The target identifier.</param>
 	/// <returns>IUnit.</returns>
 	virtual IUnit* GetEntityByTargetId(int TargetId) = 0;
+
+	/// <summary>
+	/// Gets all minions (normal, super, jungle, etc.) and wards.
+	/// </summary>
+	/// <param name="Friendly">if set to <c>true</c> [search friendly].</param>
+	/// <param name="Enemy">if set to <c>true</c> [search enemy].</param>
+	/// <param name="Neutral">if set to <c>true</c> [search neutral].</param>
+	/// <returns>Vector of all units found.</returns>
+	virtual std::vector<IUnit*> GetAllMinionsAndWards(bool Friendly, bool Enemy, bool Neutral) = 0;
 };
 
 /// <summary>
