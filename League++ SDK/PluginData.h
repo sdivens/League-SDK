@@ -367,6 +367,22 @@ public:
 	/// <param name="Out">Output showing all masteries.</param>
 	/// <returns>True if masteries were found and at least one exists.</returns>
 	virtual bool GetMasteries(std::vector<HeroMastery>& Out) = 0;
+
+	/// <summary>
+	/// Determines whether this object [is in screen space].
+	/// </summary>
+	/// <returns>
+	///   <c>true</c> if [is on screen]; otherwise, <c>false</c>.
+	/// </returns>
+	virtual bool IsOnScreen() = 0;
+
+	/// <summary>
+	/// Determines whether [is hp bar being rendered].
+	/// </summary>
+	/// <returns>
+	///   <c>true</c> if [is hp bar being rendered]; otherwise, <c>false</c>.
+	/// </returns>
+	virtual bool IsHpBarBeingRendered() = 0;
 };
 
 #endif // PluginData_h__
