@@ -2502,7 +2502,7 @@ public:
 
 	/// <summary>
 	/// Check if a given file exists in the L++ root directory
-	/// Sub paths are acceptable (e.g DoesFileExit("Textures\\Awareness\\Icons\\Icon1.png"))
+	/// Sub paths are acceptable (e.g DoesFileExist("Textures\\Awareness\\Icons\\Icon1.png"))
 	/// </summary>
 	/// <param name="FileName">Name of the file.</param>
 	/// <returns></returns>
