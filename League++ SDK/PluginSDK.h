@@ -2514,7 +2514,7 @@ public:
 	/// </summary>
 	/// <param name="DirectoryName">Name of the directory.</param>
 	/// <returns></returns>
-	virtual bool CreateNewirectory(const char* DirectoryName) = 0;
+	virtual bool CreateNewDirectory(const char* DirectoryName) = 0;
 
 	/// <summary>
 	/// Reads from the given file in the L++ root directory
