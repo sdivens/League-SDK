@@ -179,7 +179,7 @@ public:
 	/// <param name="Size">The size.</param>
 	/// <param name="Width">The width.</param>
 	/// <param name="Color">The color (RGBA, 0-255).</param>
-	virtual void DrawOutinedBox(Vec2 const& Position, Vec2 const& Size, float Width, Vec4 const& Color) = 0;
+	virtual void DrawOutlinedBox(Vec2 const& Position, Vec2 const& Size, float Width, Vec4 const& Color) = 0;
 
 	/// <summary>
 	/// Draws outlined circle.
